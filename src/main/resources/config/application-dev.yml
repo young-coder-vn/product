@@ -47,12 +47,14 @@ spring:
       # it can be set to any label, branch or commit of the configuration source Git repository
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/product
-    username: product
+    url: jdbc:postgresql://localhost:5432/store
+    username: store
     password:
     hikari:
       poolName: Hikari
       auto-commit: false
+      minimum-idle: 5
+      maximum-pool-size: 20
   jpa:
     database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
   liquibase:
@@ -85,7 +87,7 @@ jhipster:
   cache: # Cache configuration
     redis: # Redis configuration
       expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
-      server: redis://localhost:6379
+      server: redis://192.168.64.226:6379
       cluster: false
       # server: redis://localhost:6379,redis://localhost:16379,redis://localhost:26379
       # cluster: true
